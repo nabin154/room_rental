@@ -1,10 +1,9 @@
 const mongoose = require('mongoose');
+const { mongodbURI } = require('./envData');
 
 
 const connectDb = async () => {
     try {
-
-        const mongodbURI = process.env.mongodbURI;
         const isConnected = await mongoose.connect(mongodbURI);
         if (connectDb) {
             console.log("MONGODB Connected successfully!".blue.bold);
