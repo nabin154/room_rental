@@ -41,17 +41,13 @@ const getNearbyRooms = asyncHandler(async (req, res) => {
 });
 
 const addRoom = asyncHandler(async (req, res) => {
-    const { name, description,images, latitude, longitude } = req.body;
-
-    if (!name || !description || !latitude || !longitude) {
-        res.status(400);
-        throw new Error("All fields are required");
-    }
+    const { ownerName, description, images, latitude, price, longitude } = req.body;
 
     const room = new Room({
-        name,
+        ownerName,
         description,
         images,
+        price,
         location: {
             latitude,
             longitude
