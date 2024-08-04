@@ -3,9 +3,13 @@ const mongoose = require("mongoose");
 const roomSchema = new mongoose.Schema({
     ownerName: { type: String, required: true },
     images: [{ type: String }],
-    location: { type: String, required: true },
+    address: { type: String, required: true },
     description: { type: String, required: true },
-    price: { type: Number, required: true }
+    price: { type: Number, required: true },
+    location: {
+        latitude: { type: String },
+        longitude: { type: String }
+    }
 },
     {
         timestamps: true,
